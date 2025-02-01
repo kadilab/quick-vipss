@@ -185,7 +185,7 @@ export default function Driver() {
       const user = storedUser ? JSON.parse(storedUser) : null;
       if (user) {
         const response = await fetch(
-          `https://quickapi.quick-vip.net/index.php?route=today_trip&user_id=${user.id}&status=confirmed`
+          `https://quickapi.quick-vip.net/index.php?route=today_trip&user_id=${user.id}&status=completed`
         );
         const data = await response.json();
         setTodayTrip(data.somme || 0);
@@ -394,7 +394,6 @@ export default function Driver() {
                 <Text style={styles.locationText}>{`7GJ4+9JR, ${notification?.service_type}, DRC`}</Text>
               </View>
             </View>
-
             <View  style={{flexDirection:"row",gap:10}}>
               <TouchableOpacity style={styles.acceptButton} onPress={handleAccept}>
                 <Text style={styles.buttonText}>Accepter</Text>
